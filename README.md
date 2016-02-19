@@ -4,7 +4,7 @@
 [Języki programowania, rok I](https://inf.ug.edu.pl/~stefan/Dydaktyka/JezProg/)
 
 1.[Laboratorium 1](lab01):
-* [ ] [zadanie 1](lab01/zad1.c)
+* [x] [zadanie 1](lab01/zad1.c)
 * [ ] [zadanie 2](lab01/zad2.c)
 * [ ] [zadanie 3](lab01/zad3.c)
 * [ ] [zadanie 4](lab01/zad4.c)
