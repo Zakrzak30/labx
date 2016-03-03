@@ -10,3 +10,7 @@
 * [ ] [zadanie 4](lab01/zad4.c)
 * [ ] [zadanie 5](lab01/zad5.c)
 * [ ] [zadanie 6](lab01/zad6.c)
+
+1.[Laboratorium 2](https://github.com/Zakrzak30/labx/blob/master/lab02):
+* [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab01/zad00.c)
+* [x] [zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab01/zad01.c)
