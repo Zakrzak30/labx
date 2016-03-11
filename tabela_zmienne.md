@@ -1,8 +1,9 @@
-| typ | wartość dolna  | wartość górna |,,ziarno''| ,,precyzja'' |	format we/wy |
-| short | SHORT_MIN | SHORT_MAX | | |  i |
-| int | INT_MIN | INT_MAX | | |  i |
-| long | LONG_MIN | LONG_MAX | | |  li |
-| long long | LLONG_MIN | LLONG_MAX | | |  lli |
-| float | FLT_MIN | FLT_MAX | FLT_EPSILON | FLT_DIG |  f lub e |
-| double | DBL_MIN | DBL_MAX | DBL_EPSILON | DBL_DIG |  lf lub le |
-| long double | LDBL_MIN | LDBL_MAX | LDBL_EPSILON | LDBL_DIG |  Lf lub Le |
+|typ        |       wartosc min   |          wartosc max|       ziarno| precyzja|we/wy|
+|-----------|---------------------|---------------------|-------------|---------|-----|
+|short      |               -32768|                32767|             |         | i   |
+|int        |               -32768|                32767|             |         | d   |
+|long       | -9223372036854775808|  9223372036854775807|             |         | li  |
+|long long  | -9223372036854775808|  9223372036854775807|             |         | lli |
+|float      |         1.175494e-38|         3.402823e+38| 1.192093e-07|        6| lli |
+|double     |        2.225074e-308|        1.797693e+308| 2.220446e-16|       15| lli |
+|long double|       3.362103e-4932|       1.189731e+4932| 1.084202e-19|       18| Le  |
