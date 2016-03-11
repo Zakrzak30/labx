@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<float.h>
 #include<limits.h>
-
+//Poprawić aby tabla by była generowana automatycznie
 int main()
 {
 
