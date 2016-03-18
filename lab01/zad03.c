@@ -1,13 +1,17 @@
+// Napisać programy testujące działanie operatorów z efektami ubocznymi w różnych sytuacjach, od których może zależeć wynik działania.
+// Przykłady:
+// a[i++]=0;  oraz  a[++i]=0;
+// y=(x+=2);
+// z=(x%=3)+(x%=4);
+
 #include <stdio.h>
-void wypisz_tab(int tab[], int size)
-{
+void wypisz_tab(int tab[], int size){
   int i;
   for(i=0;i<size;)
     printf("%d ", tab[i++]);
   printf("\n");
 }
-void fun1(int tab[], int a)
-{
+void fun1(int tab[], int a){
   int i,tmp;
   tmp=a;
   tab[a++]=0;
@@ -21,20 +25,20 @@ void fun1(int tab[], int a)
   wypisz_tab(tab, 5);
   printf("To nie to samo!\n");
 }
-void fun2(int x)
-{
+void fun2(int x){
   int y,z;
   printf("\nTest 2 i test 3:\n");
   y=(x+=2);
-  z=(x%=3)+(x%=4);
+  z=(x%=4)+(x%=3);
   printf("x=%d, y=%d, z=%d\n", x, y, z);
 }
-int main()
-{
+int main(){
   int tab[5] = {1,2,3,4,5};
   printf("Tabela:\n");
   wypisz_tab(tab, 5);
   fun1(tab, 3);
   fun2(5);
-  return 0;
 }
+//wynik dla fun2 jest zalezny od kolejnosci wykonywania zadan 
+// z=(x%=3)+(x%=4)=2,  z=(x%=4)+(x%=3)=0 
+
