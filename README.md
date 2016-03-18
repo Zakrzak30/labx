@@ -19,3 +19,6 @@
 
 1.[Laboratorium 3](https://github.com/Zakrzak30/labx/blob/master/lab03):
 * [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab03/zad01.c)  [Tabela](https://github.com/Zakrzak30/labx/blob/master/tabela_zmienne.md)
+
+1.[Laboratorium 4](https://github.com/Zakrzak30/labx/blob/master/lab04):
+* [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab04/zad01.c) 
