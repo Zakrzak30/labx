@@ -1,27 +1,27 @@
-#include<stdio.h>
+//  Napisać program, który wczytuje tekst aż do EOF, a następnie drukuje bitowe obrazy wczytanych znaków.
 
-int main(){
-	int tab[8];
-	char tekst;
-	int i, j, obraz, reszta;
-
-	while( tekst != EOF ){
-		scanf("%c", &tekst );
-		obraz = (int)tekst;
-		for( i=0; i<8; i++ )
-			tab[i] = 0;
-			j = 7;
-		while( obraz != 0 ){
-			
-			reszta = obraz%2;
-			obraz = obraz/2;
-			if( reszta == 1 )
-				tab[j] = 1;
-			j--;
-		}
-		for(i=0; i<8; i++)
-			printf("%d", tab[i]);
-		printf("\n");
-	}
-return 0;
+#include <stdio.h>
+void dec_bin(int x){
+  int tab[10];
+  int l=0;
+  while(x!=0){
+    tab[l]=x%2;
+    x=x/2;
+    l++;
+  }
+  while(l>0){
+    l--;
+    printf("%i", tab[l]);
+  }
+  printf("\n");
 }
+int main(){
+  char z;
+  z=getchar();
+  while(z!=EOF)
+  {
+    if(z!='\n') dec_bin(z);
+    z=getchar();
+  }
+}
+
