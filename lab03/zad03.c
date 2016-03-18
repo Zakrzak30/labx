@@ -14,3 +14,6 @@ int main()
 
   return 0;
 }
+  // rzutowanie z mniejszego typu na wiekszy różnica w wyswietlanych wynikach jest spowodowana
+  // prezentacja liczby w postaci ae+b 
+  // przy wyswietlaniu wyniku a jest ograniczone do 6 miejsc po przecinku
