@@ -48,6 +48,7 @@ void  utworz_spis(void) {
 }
 
 //=======================================================
+//Poprawcic z uzyciem quicksort
 void  sortuj_spis(void) 
 {
 	int i, j;
