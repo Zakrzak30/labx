@@ -1,23 +1,27 @@
-/* Ten program obsługuje duży spis osób opisanych strukturą:
-  typedef struct {
-    char imie[IMIE_MAX+1];
-    char nazwisko[NAZW_MAX+1];
-    int pensja;
-  } osoba;
-  osoba spis[IL_OSOB];
-Jego inicjalizacja składa się z wywołania funkcji:
-    utworz_spis -- napisanej przeze mnie, można do niej nie zaglądać;
-    sortuj_spis -- którą trzeba napisać samemu. 
-Po inicjalizacji program pyta o nazwisko lub imię osoby i znajduje w spisie brakujące dane na jej temat: imię, nazwisko i pensję.
-Należy napisać ciała funkcji znajdz_nazwisko oraz znajdz_imie -- ich nagłówki i komentarze opisujące sposób działania są w programie podane.
-W pierwszej wersji można nie realizować funkcji sortuj_spis, a wyszukiwanie zorganizować jakkolwiek. W drugiej (lepszej) wersji zrobić funkcję sortuj_spis i w wyszukiwaniu wg nazwisk wykorzystać fakt, że spis jest uporządkowany.
-Uwaga:
-Części programu napisanych przeze mnie nie wolno zmieniać. Należy tylko dopisać ciała funkcji sortuj_spis, znajdz_nazwisko i znajdz_imie.
-*/
+// Ten program obsługuje duży spis osób opisanych strukturą:
+//
+//   typedef struct {
+//     char imie[IMIE_MAX+1];
+//     char nazwisko[NAZW_MAX+1];
+//     int pensja;
+//   } osoba;
+//    osoba spis[IL_OSOB];
+// Jego inicjalizacja składa się z wywołania funkcji:
+// utworz_spis -- napisanej przeze mnie, można do niej nie zaglądać;
+// sortuj_spis -- którą trzeba napisać samemu.
+// Po inicjalizacji program pyta o nazwisko lub imię osoby i znajduje w spisie brakujące dane na jej temat: imię, nazwisko i pensję.
+// Należy napisać ciała funkcji znajdz_nazwisko oraz znajdz_imie -- ich nagłówki i komentarze opisujące sposób działania są w programie podane.
 
+// W pierwszej wersji można nie realizować funkcji sortuj_spis, a wyszukiwanie zorganizować jakkolwiek.
+//  W drugiej (lepszej) wersji zrobić funkcję sortuj_spis i w wyszukiwaniu wg nazwisk wykorzystać fakt, że spis jest uporządkowany.
+// baza jako argument...
+// bsearch
+// rozwiazac powtarzanie się rekordów !!!
+// binki pointer
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
+#include<stdlib.h>
 
 #define IMIE_MAX 10
 #define NAZW_MAX 15
@@ -33,13 +37,11 @@ osoba spis[IL_OSOB];
 
 //=======================================================
 
-void  utworz_spis(void) {
+void  utworz_spis(char *nazwa) {
   FILE* baza =
-    fopen("/home/pracinf/stefan/public_html/Dydaktyka/JezProg/Slajdy/Labs05/baza_danych",
-  "r");
+    fopen(nazwa,"r");
   if (baza == NULL) printf("\n ZLE\n\n");
-  int i;
-  for (i=0; i<IL_OSOB; i++) {
+  for (int i=0; i<IL_OSOB; i++) {
     fscanf(baza, "%s", spis[i].imie);
     fscanf(baza, "%s", spis[i].nazwisko);
     fscanf(baza, "%i", &spis[i].pensja);
@@ -48,90 +50,91 @@ void  utworz_spis(void) {
 }
 
 //=======================================================
-//Poprawcic z uzyciem quicksort
-void  sortuj_spis(void) 
-{
-	int i, j;
-	char tempi[IMIE_MAX+1]; //temporary do sorta - imie
-	char tempn[NAZW_MAX+1]; //temporary do sorta - nazwisko
-	int tempp; //temporary do sorta - pensja
-	for(i=0; i<IL_OSOB-1; i++)
-	{
-		for(j=i+1; j<IL_OSOB; j++)
-        	{
-            		if (strcmp(spis[i].nazwisko, spis[j].nazwisko) > 0)
-            		{
-                		strcpy(tempn, spis[i].nazwisko);
-				strcpy(tempi, spis[i].imie);
-				tempp = spis[i].pensja;
-                		strcpy(spis[i].nazwisko, spis[j].nazwisko);
-				strcpy(spis[i].imie, spis[j].imie);
-				spis[i].pensja = spis[j].pensja;
-				strcpy(spis[j].nazwisko, tempn);
-				strcpy(spis[j].imie, tempi);
-				spis[j].pensja, tempp;
-			}
-			
-			if (strcmp(spis[i].nazwisko, spis[j].nazwisko) == 0)
-			{
-				if (strcmp(spis.[i].imie, spis[j].imie) > 0)
-            			{
-					strcpy(tempi, spis[i].imie);
-					tempp = spis[i].pensja;
-					strcpy(spis[i].imie, spis[j].imie);
-					spis[i].pensja = spis[j].pensja;
-					strcpy(spis[j].imie, tempi);
-					spis[j].pensja, tempp;
-            			}
-			}
 
-       		}
-
-    	}
-
+int compare(const void *s1, const void *s2, void *arg)
+  {
+    osoba *o1 = (osoba *)s1;
+    osoba *o2 = (osoba *)s2;
+    int *n = (int *)arg;
+    switch ( *n ) {
+      case 1:
+        return strcmp(o1 -> nazwisko, o2 -> nazwisko);
+        break;
+      case 2:
+        return strcmp(o1 -> imie, o2 -> imie);
+        break;
+      case 3:
+        if ( o1 -> pensja > o2 -> pensja) {
+          return -1;
+        }
+        break;
+      default:
+      break;
+    }
+    return 2;
 }
+// powyzsza funkcja generuje bez instrukcji return 2; ostrzerzenie -Wreturn-type
 //=======================================================
 
-int  znajdz_nazwisko (char na[NAZW_MAX+1], char im[IMIE_MAX+1], int *p)
-{
-	int i;
-	for(i=0; i<IL_OSOB; i++)
-	{
-		if(strcmp(spis[i].nazwisko,na) == 0)
-		{
-			strcpy(im,spis[i].imie);	
-			*p = spis[i].pensja;
-			return 1;
-		}	
-	}
-	
-	return 0;
+
+void  sortuj_spis() {
+  int opcja;
+  printf("Jak chcesz posortować spis? (1) nazwisko, (2) imie, (3) pensja : \n");
+  scanf("%d",&opcja);
+  qsort_r ( spis, IL_OSOB, sizeof(osoba), compare, &opcja);
 }
 
 //=======================================================
+void spis_do_pliku() {
 
-int  znajdz_imie (char im[NAZW_MAX+1], char na[IMIE_MAX+1], int *p)
+
+  FILE *fp = fopen("posortowany", "w");
+
+  if( !fp ) {
+    printf("Błąd odczytu pliku");
+  }
+    for( int i = 0; i < IL_OSOB; ++i) {
+      if(spis[i].pensja)
+        fprintf(fp,"%s %s %i\n",spis[i].imie, spis[i].nazwisko, spis[i].pensja);
+      else continue;
+    }
+  fclose(fp);
+}
+//=======================================================
+int  znajdz_nazwisko (char *na, char *im, int *p)
 {
-	int i;	
-	for(i=0; i<IL_OSOB; i++)
-	{
-		if(strcmp(spis[i].imie,im) == 0){
-		strcpy(na,spis[i].nazwisko);	
+  // bsearch (&na, spis.nazwisko, sizeof(spis.nazwisko),  )
+	for(int i = 0; i < IL_OSOB; ++i){
+		if(strcmp( spis[i].nazwisko, na) == 0){
+		strcpy( im, spis[i].imie );
 		*p = spis[i].pensja;
 		return 1;
-		}	
+		}
 	}
-	
+	return 0;
+}
+
+//=======================================================
+//połaczyć znajdz nazwisko i znajdz imie
+int  znajdz_imie (char *im, char *na, int *p)
+{
+
+	for( int i = 0; i < IL_OSOB; ++i ){
+		if( strcmp( spis[i].imie, im) == 0 ){
+		strcpy( na, spis[i].nazwisko );
+		*p = spis[i].pensja;
+		return 1;
+		}
+	}
 	return 0;
 }
 
 //=======================================================
 
-int main () {
+int main (int argc, char *argv[]) {
   char odpowiedz, im[NAZW_MAX+1], na[IMIE_MAX+1];
   int p;
-
-  utworz_spis(); sortuj_spis();
+  utworz_spis(argv[1]); sortuj_spis();spis_do_pliku();
 
   do {
     printf(
@@ -162,5 +165,5 @@ int main () {
   }  while (tolower(odpowiedz) != 'q');
 
   printf("\n DZIEKUJE.\n\n");
-  return 0;
+
 }
