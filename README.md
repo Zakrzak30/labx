@@ -31,4 +31,4 @@
 
 1.[Laboratorium 6](https://github.com/Zakrzak30/labx/blob/master/lab06):
 * [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab06/zad01.c)
-* [x] [zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab06/glowny.c)[funkcje](https://github.com/Zakrzak30/labx/blob/master/lab06/funkcje.c)
+* [x] [zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab06/glowny.c) [funkcje](https://github.com/Zakrzak30/labx/blob/master/lab06/funkcje.c)
