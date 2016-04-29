@@ -1,13 +1,10 @@
-sources = zad1.c
+sources = zad1.c zad1_with_complexh.c zad2.c
 
 programs = $(basename $(sources))
 objects = $(addsuffix .o, $(programs))
 
-CFLAGS = -Wall -std=c11
+CC = gcc
+CFLAGS = -Wall -std=c99 -D_GNU_SOURCE
 LDLIBS = -lm
-
-.PHONY : clean
-clean :
-	-$(RM) $(objects) $(programs) *~
 
 all : $(programs)
