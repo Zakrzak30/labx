@@ -38,3 +38,9 @@
 1.[Laboratorium 7](https://github.com/Zakrzak30/labx/blob/master/lab07):
 * [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab07/zad01.c)
 * [x] [zadanie 2,3](https://github.com/Zakrzak30/labx/blob/master/lab07/zad02.c)
+* 
+1.[Laboratorium 8](https://github.com/Zakrzak30/labx/blob/master/lab08):
+* [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab08/zad01.c)  
+* [x] [zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab08/zad02.c) 
+* [x] [zadanie 3](https://github.com/Zakrzak30/labx/blob/master/lab08/zad03.c) 
+* [x] [zadanie 4](https://github.com/Zakrzak30/labx/blob/master/lab08/zad04.c) 
