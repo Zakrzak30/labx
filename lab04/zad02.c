@@ -19,6 +19,4 @@ int main() {
     double complex z = 2 + 2 * I;
     result= cpow(M_E,z);
     printf("e^(%lf%+lfi) = %lf%+lfi\n\n",creal(z), cimag(z), creal(result),cimag(result) ); // ok - https://www.wolframalpha.com/input/?i=e^%282%2B2i%29
-
-    return 0;
 }
