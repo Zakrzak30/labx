@@ -1,9 +1,14 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main (int ile_arg, char* arg[ ]) {
-    int i;
-    for(i=ile_arg-1; i>0; i--){
-        printf(" %s ", arg[i]);
-    }
-    printf("\n");
+int main(int argc, char *argv[])
+{
+  int i;
+  for(i = argc-1; i > 0; i--)
+  {
+    if(i == argc-1)
+      printf("%s", argv[i]);
+    else
+      printf(" %s", argv[i]);
+  }
+  printf("\n");
 }
