@@ -6,8 +6,7 @@
 // Należy zwrócić uwagę, że w warunku powyższej instrukcji if występuje koniunkcja bitowa & a nie koniunkcja logiczna &&.
 
 #include <stdio.h>
-int main()
-{
+int main(){
   int a=2, b=4, c;
   if ((a=2) & (b=4)) printf("TAK\n");
   else printf("NIE\n");
