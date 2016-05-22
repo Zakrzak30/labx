@@ -47,4 +47,4 @@
 * [x] [zadanie 4](https://github.com/Zakrzak30/labx/blob/master/lab08/zad04.c) 
 
 1.[Laboratorium 14](https://github.com/Zakrzak30/labx/blob/master/lab14):
-* [x] [zadanie 1](https://github.com/Zakrzak30/labx/blob/master/lab14/zad02.c)
+* [x] [zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab14/zad02.c)
