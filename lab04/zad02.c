@@ -26,15 +26,19 @@ int main() {
   result1=0;
   float epsilon=0.000001;
   r=0;
+  //Dla niektórych liczb ta pętla może być nieskończona
+  //Zachowałem pętlę w tym stanie ponieważ wyjście z pętli w pewnym stopniu dowodzi zbierzności szeregu
+  //a samo zadanie nie ma innych zastosowań
+  //Dodatkowo szeregi to z definicji nieskończona suma
     while(cabs(result1-result)){
       result1=result1+(cpow(z,r)/factorial(r));
       r=r+1;
     }
   printf("\ne^(%f%+fi) =%f%+fi\nPowinno byc %f%+fi z dokladnoscia modulu do %f\n",crealf(z), cimagf(z), crealf(result1),cimagf(result1), crealf(result),cimagf(result),epsilon );
 }
-//Szereg jest zbierzny dla liczy z=1+I
+//Szereg jest zbierzny np. dla liczy z=1+I
 //W innych przypadkach (np. 2+2I dla typu zmiennych użytych w programie)  
-//tak zdefiniowany szereg nie jest zbierzny ponieważ jego wyrazy wykraczają
+//tak zdefiniowany szereg może ie być zbierzny ponieważ jego wyrazy wykraczają
 //poza dopuszczalny zakres wartosci
 //Przykladowo juz 21! nie da sie zapisac na 64 bitach 
 //2^64 = 18446744073709551616
