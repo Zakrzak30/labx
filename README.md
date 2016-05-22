@@ -1,5 +1,8 @@
 # Laboratorium C, 2016/17
 
+1.[Ciekawe zadania]
+* [x] [lab 04 zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab04/zad02.c) [Ciekawa jest ostatnia część czyli próba obliczenia sumy szeregu (działający przykałd oraz wyjaśnienie)]
+* [x] [lab 14 zadanie 2](https://github.com/Zakrzak30/labx/blob/master/lab14/zad02.c) [Porównanie zadanej metody całkowania z metodą Simpsona i dokładnym wynikiem całkowania]
 *S.Sokołowski.
 [Języki programowania, rok I](https://inf.ug.edu.pl/~stefan/Dydaktyka/JezProg/)
 
