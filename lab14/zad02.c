@@ -10,6 +10,8 @@
 //Wypróbować ten program dla kilku różnych funkcji i sprawdzić, czy całki wychodzą w przybliżeniu poprawne, oraz jak na tą poprawność wpływa liczba   n . 
 #include<stdio.h>
 #include<math.h>
+  int i,n;
+  float x0,xn,h,y[20],so,se,ans,x[20];
 float f(float x){
   return(1/(1+pow(x,2)));
 }
@@ -33,14 +35,12 @@ float prostokat(){
   ans=0;
   for(i=0; i<n; i++){
   ans = ans + y[i]*h;
+}
   return ans;
 }
 int main(){
-  int i,n;
-  float x0,xn,h,y[20],so,se,ans,x[20];
-  printf("\n Podaj poczatek i koniec przedzialu calkowania oraz liczbe podprzedzialow x0,xn,n:\n");
-  scanf("%f%f%f",&x0,&xn,&h);
-  h=(xn-x0)/n;
+  printf("\n Podaj poczatek i koniec przedzialu calkowania\n oraz liczbe podprzedzialow x0,xn,n:\n");
+  scanf("%f%f%d",&x0,&xn,&n);
   if(n%2==1){
     n=n+1;
   }
@@ -50,11 +50,11 @@ int main(){
     y[i]=f(x[i]);
   }
   ans = prostokat();
-  printf("Wynik metody prostokatow: %f", ans);
+  printf("\nWynik metody prostokatow: %f\n", ans);
   ans = simpson();
-  printf("Wynik metody Simpsona   : %f", ans);
+  printf("Wynik metody Simpsona   : %f\n", ans);
 //calka nieoznaczona z 1/(1+x^2) to arctg x 
 //dokladny wynik to atan(xn) - atan(x0)
   ans = atan(xn) - atan(x0);
-  printf("Dokladny wynik          : %f", ans);
+  printf("Dokladny wynik          : %f\n", ans);
   }
